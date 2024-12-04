@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -8,7 +7,6 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
-
     body {
       font-family: 'Roboto', sans-serif;
       background-color: #f4f4f9;
@@ -16,46 +14,57 @@
       line-height: 1.6;
     }
 
-    /* Header styles */
-    header {
-      background-color: #ffffff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 1.5rem;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
+    .slogan {
+      font-size: 1.5rem;
       font-weight: 700;
-      color: #333;
-      text-align: center;
-      transition: color 0.3s ease;
-    }
-
-    header h1 a:hover {
       color: #3498db;
+      text-align: center;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 1s ease-in-out;
     }
 
-    header nav a {
-      font-size: 1.125rem;
-      font-weight: 600;
-      padding: 0.5rem 1.5rem;
-      color: #333;
-      background-color: #f9f9f9;
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .nav-link {
+      transition: color 0.3s ease, transform 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      background-color: #f3f4f6;
+      margin: 0.25rem;
+    }
+
+    .nav-link:hover {
+      color: #3498db;
+      transform: translateY(-5px);
+      background-color: #e2e8f0;
+    }
+
+    .menu {
+      transition: max-height 0.5s ease-out;
+      overflow: hidden;
+      max-height: 0;
+    }
+
+    .menu-expanded {
+      max-height: 500px; /* Adjust as needed */
+    }
+
+    .menu-btn {
+      background-color: #3498db;
+      color: white;
+      padding: 0.5rem 1rem;
       border-radius: 0.375rem;
       transition: background-color 0.3s ease;
     }
 
-    header nav a:hover {
-      background-color: #3498db;
-      color: #ffffff;
+    .menu-btn:hover {
+      background-color: #2980b9;
     }
-    input{
-  width: 90%; /* Adjust width */
-  height: 40px; /* Adjust height */
-}
 
-
-    /* Section header with gradient animation */
     .section-header {
       font-size: 2rem;
       font-weight: 700;
@@ -79,7 +88,6 @@
       }
     }
 
-    /* Card styling for each section */
     .sub-section {
       background-color: #ffffff;
       padding: 2rem;
@@ -94,21 +102,13 @@
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
 
-    .sub-header {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-
-    /* Form Styling */
     input, textarea {
       width: 100%;
       padding: 1rem;
       border-radius: 0.375rem;
       border: 1px solid #e0e0e0;
       margin-bottom: 1rem;
+      height: 50px; /* Increased height */
     }
 
     input:focus, textarea:focus {
@@ -117,7 +117,6 @@
       box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
     }
 
-    /* Button styling - similar to nav bar */
     .btn-send-message {
       font-size: 1.125rem;
       font-weight: 600;
@@ -139,7 +138,6 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    /* Footer Styles */
     footer {
       background-color: #333;
       color: #fff;
@@ -155,25 +153,47 @@
 </head>
 <body>
 
-  <header>
-    <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-      <h1>
-        <a href="/">Cement Strength Prediction Using Advanced MLT</a>
-      </h1>
-
-      <!-- Hamburger Menu Button -->
-      <button id="hamburger" class="block md:hidden p-2 focus:outline-none">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
-
-      <!-- Navigation Links -->
-      <nav id="navbar" class="hidden md:flex space-x-4">  <!-- Hidden by default on small screens -->
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-      </nav>
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <a class="text-xl font-bold" href="/">
+          <img alt="Company logo with a stylized letter 'C' in blue and white" height="50" src="https://storage.googleapis.com/a1aa/image/U1iJe1fnQ7nBnUi1xg3FKAqfQ7NbsOfWhL3NXEfUtalkCf39E.jpg" width="150"/>
+        </a>
+        <div class="hidden md:flex space-x-4">
+          <a class="nav-link text-gray-700" href="/">
+            Home
+          </a>
+          <a class="nav-link text-gray-700" href="/about">
+            About
+          </a>
+          <a class="nav-link text-gray-700" href="/contact">
+            Contact
+          </a>
+        </div>
+        <div class="md:hidden">
+          <button class="menu-btn focus:outline-none" id="menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <div class="menu md:hidden" id="menu">
+        <a class="block py-2 nav-link text-gray-700" href="/">
+          Home
+        </a>
+        <a class="block py-2 nav-link text-gray-700" href="/about">
+          About
+        </a>
+        <a class="block py-2 nav-link text-gray-700" href="/contact">
+          Contact
+        </a>
+      </div>
     </div>
   </header>
+
+  <!-- Slogan -->
+  <div class="slogan">
+    Our Predictions Are So Strong, Even the Cement Is Jealous!
+  </div>
 
   <main class="container mx-auto px-4 py-12">
     <section class="bg-white p-8 rounded-lg shadow-lg mb-12">
@@ -183,15 +203,15 @@
         <form action="#" method="POST" class="max-w-lg mx-auto">
           <div class="mb-4">
             <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
-            <input type="text" id="name" name="name" class="focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="   Enter your name" required/>
+            <input type="text" id="name" name="name" class="focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="  Enter your name" required/>
           </div>
           <div class="mb-4">
             <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
-            <input type="email" id="email" name="email" class="focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="   Enter your email" required/>
+            <input type="email" id="email" name="email" class="focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="  Enter your email" required/>
           </div>
           <div class="mb-4">
             <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-            <textarea id="message" name="message" class="focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="   Enter your message" rows="4" required></textarea>
+            <textarea id="message" name="message" class="focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="  Enter your message" rows="4" required></textarea>
           </div>
           <button type="submit" class="btn-send-message">
             Send Message
@@ -201,15 +221,17 @@
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2024 Cement Strength Prediction System. All rights reserved.</p>
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2024 Cement Strength Prediction System. All rights reserved.</p>
+    </div>
   </footer>
 
   <!-- JavaScript for Toggling Navbar -->
   <script>
-    document.getElementById('hamburger').addEventListener('click', function() {
-      const navbar = document.getElementById('navbar');
-      navbar.classList.toggle('hidden');  // Toggle the visibility of the nav items
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('menu-expanded');
     });
   </script>
 

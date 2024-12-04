@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -10,62 +9,222 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .slogan {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #3498db;
+      text-align: center;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .nav-link {
+      transition: color 0.3s ease, transform 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      background-color: #f3f4f6;
+      margin: 0.25rem;
+    }
+
+    .nav-link:hover {
+      color: #3498db;
+      transform: translateY(-5px);
+      background-color: #e2e8f0;
+    }
+
+    .menu {
+      transition: max-height 0.5s ease-out;
+      overflow: hidden;
+      max-height: 0;
+    }
+
+    .menu-expanded {
+      max-height: 500px; /* Adjust as needed */
+    }
+
+    .menu-btn {
+      background-color: #3498db;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .menu-btn:hover {
+      background-color: #2980b9;
+    }
+
+    .section-header {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      background: linear-gradient(45deg, #f39c12, #8e44ad, #3498db, #e74c3c, #2ecc71);
+      background-size: 400% 400%;
+      color: transparent;
+      -webkit-background-clip: text;
+      animation: gradient 5s ease infinite;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .step-block {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .step-block:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #3182ce;
+      color: white;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #2b6cb0;
+      transform: translateY(-5px);
+    }
+
+    .cta-btn:focus {
+      outline: none;
+    }
+
+    .center-section {
+      text-align: center;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body class="bg-gray-100">
-  <header class="bg-white shadow">
-    <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-      <h1 class="text-3xl font-bold text-gray-800">
-        <a href="/" class="hover:text-blue-500">Cement Strength Prediction Using Advanced MLT</a>
-      </h1>
-      <nav>
-        <a href="/" class="text-lg font-semibold text-gray-800 hover:text-blue-500">Home</a>
-        <a href="/about" class="text-lg font-semibold text-gray-800 hover:text-blue-500 ml-4">About</a>
-        <a href="/contact" class="text-lg font-semibold text-gray-800 hover:text-blue-500 ml-4">Contact</a>
-      </nav>
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <a class="text-xl font-bold" href="/">
+          <img alt="Company logo with a stylized letter 'C' in blue and white" height="50" src="https://storage.googleapis.com/a1aa/image/U1iJe1fnQ7nBnUi1xg3FKAqfQ7NbsOfWhL3NXEfUtalkCf39E.jpg" width="150"/>
+        </a>
+        <div class="hidden md:flex space-x-4">
+          <a class="nav-link text-gray-700" href="/">
+            Home
+          </a>
+          <a class="nav-link text-gray-700" href="/about">
+            About
+          </a>
+          <a class="nav-link text-gray-700" href="/contact">
+            Contact
+          </a>
+        </div>
+        <div class="md:hidden">
+          <button class="menu-btn focus:outline-none" id="menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <div class="menu md:hidden" id="menu">
+        <a class="block py-2 nav-link text-gray-700" href="/">
+          Home
+        </a>
+        <a class="block py-2 nav-link text-gray-700" href="/about">
+          About
+        </a>
+        <a class="block py-2 nav-link text-gray-700" href="/contact">
+          Contact
+        </a>
+      </div>
     </div>
   </header>
 
+  <!-- Slogan -->
+  <div class="slogan">
+    Our Predictions Are So Strong, Even the Cement Is Jealous!
+  </div>
+
   <main class="container mx-auto px-4 py-12">
     <section class="bg-white p-8 rounded-lg shadow-lg mb-12">
-      <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">How to Use Cement Strength Prediction</h2>
+      <h2 class="section-header text-center">How to Use Cement Strength Prediction</h2>
       
       <p class="text-lg text-gray-700 mb-6">
-        Welcome to the Cement Strength Prediction system, which uses advanced machine learning techniques to predict the strength of cement based on various parameters. Follow these steps to make the best use of the system:
+        Welcome to the Cement Strength Prediction system! This tool uses advanced machine learning techniques to predict cement strength based on the mixture components. All the processing happens directly on this page. Follow the steps below:
       </p>
 
-      <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
+      <!-- Step 1: Input Data -->
+      <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8 step-block">
         <h3 class="text-xl font-semibold text-gray-800 mb-4">Step 1: Input the Cement Data</h3>
         <p class="text-lg text-gray-700">
-          In this step, you will need to provide the cement's mix parameters, such as its components (e.g., cement type, water-cement ratio, and additives). These parameters play a crucial role in determining the strength of the cement.
+          Provide the absolute file path to your CSV file containing the cement mixture data. Your CSV should include the following columns:
         </p>
+        <ul class="list-disc pl-5 mb-4">
+          <li><strong>Cement</strong> (kg in a m3 mixture)</li>
+          <li><strong>Blast Furnace Slag</strong> (kg in a m3 mixture)</li>
+          <li><strong>Fly Ash</strong> (kg in a m3 mixture)</li>
+          <li><strong>Water</strong> (kg in a m3 mixture)</li>
+          <li><strong>Superplasticizer</strong> (kg in a m3 mixture)</li>
+          <li><strong>Coarse Aggregate</strong> (kg in a m3 mixture)</li>
+          <li><strong>Fine Aggregate</strong> (kg in a m3 mixture)</li>
+          <li><strong>Age</strong> (Days)</li>
+          <li><strong>Concrete Compressive Strength</strong> (MPa)</li>
+        </ul>
+        <p class="text-lg text-gray-700 mt-4">
+          Example of an absolute file path for a CSV:
+        </p>
+        <pre class="bg-gray-100 p-4 rounded-lg text-sm text-gray-700 mt-4">C:/Users/YourUsername/Documents/cement_mixture_data.csv</pre>
       </div>
 
-      <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
-        <h3 class="text-xl font-semibold text-gray-800 mb-4">Step 2: Start the Prediction Process</h3>
+      <!-- Step 2: Go to Home Page to Start the Prediction -->
+      <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8 step-block">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Step 2: Go to Home Page</h3>
         <p class="text-lg text-gray-700">
-          After entering the data, simply click the "Predict Strength" button to start the prediction process. The system will process the inputs and predict the compressive strength of the cement based on machine learning models.
+          After entering the file path, you will find the <strong>"Custom File Predict"</strong> button. Click on that button to start the prediction process, and the system will process the data and predict the compressive strength of the cement mixture.
         </p>
+        <div class="center-section">
+          <a href="/" class="cta-btn">Go to Home Page</a>
+        </div>
       </div>
 
-      <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
+      <!-- Step 3: Review Results -->
+      <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8 step-block">
         <h3 class="text-xl font-semibold text-gray-800 mb-4">Step 3: Review the Results</h3>
         <p class="text-lg text-gray-700">
-          The results of the prediction will be displayed on the screen, showing the estimated strength of the cement under various conditions. You can review the results and adjust your parameters if necessary for further analysis.
+          Once the prediction is complete, the results will be saved in the file <strong>Prediction_Output_File/Predictions.csv</strong>.
+        </p>
+        <p class="text-lg text-gray-700 mt-4">
+          You can access the predicted cement compressive strength for your mixture in this file.
         </p>
       </div>
 
-      <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
-        <h3 class="text-xl font-semibold text-gray-800 mb-4">Step 4: Contact Us for Assistance</h3>
+      <!-- Contact for Assistance -->
+      <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8 step-block">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Need Help?</h3>
         <p class="text-lg text-gray-700">
-          If you encounter any issues or need help with the system, don't hesitate to reach out to us through the <a href="/templates/contact.html" class="text-blue-500 hover:text-blue-700">Contact Us</a> page. Our support team will be happy to assist you.
+          If you experience any issues, please reach out to us through the <a href="/contact" class="text-blue-500 hover:text-blue-700">Contact Us</a> page.
         </p>
       </div>
-      
-      <div class="text-center">
-        <a href="/templates/index.html" class="text-lg font-semibold text-blue-500 hover:text-blue-600">Back to Home</a>
-      </div>
+
     </section>
   </main>
 
@@ -74,5 +233,14 @@
       <p>© 2024 APinfoTech.in All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- JavaScript for Toggling Navbar -->
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('menu-expanded');
+    });
+  </script>
+
 </body>
 </html>
