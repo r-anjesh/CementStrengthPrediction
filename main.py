@@ -22,22 +22,22 @@ app.debug = True
 def home():
     return render_template('index.html')
 
-@app.route("/templates/about.html", methods=['GET'])
+@app.route("/about", methods=['GET'])
 @cross_origin()
 def about():
     return render_template('about.html')
 
-@app.route("/templates/contact.html", methods=['GET'])
+@app.route("/contact", methods=['GET'])
 @cross_origin()
 def contact():
     return render_template('contact.html')
 
-@app.route("/templates/howto.html", methods=['GET'])
+@app.route("/howtopredict", methods=['GET'])
 @cross_origin()
 def howto():
     return render_template('howto.html')
 
-@app.route("/templates/howitworks.html", methods=['GET'])
+@app.route("/howitworks", methods=['GET'])
 @cross_origin()
 def howitworks():
     return render_template('howitworks.html')
