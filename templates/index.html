@@ -5,10 +5,11 @@
   </title>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAIq0l..." rel="shortcut icon"/>
+  <link href="https://storage.googleapis.com/a1aa/image/xVxAc1cJJvNonZz4nK6RtW3k6qmGgmbn5ehsQ6oCyaE.jpg" rel="shortcut icon"/>
   <script src="https://cdn.tailwindcss.com">
   </script>
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+  <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/> -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <style>
    body { font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
@@ -132,7 +133,7 @@
    <div class="container mx-auto px-4">
     <div class="flex justify-between items-center py-4">
      <a class="text-xl font-bold" href="/">
-      <img alt="Company logo with a stylized letter 'C' in blue and white" height="50" src="https://storage.googleapis.com/a1aa/image/U1iJe1fnQ7nBnUi1xg3FKAqfQ7NbsOfWhL3NXEfUtalkCf39E.jpg" width="150"/>
+      <img alt="Company logo with a stylized letter 'C' in blue and white" height="50" src="https://storage.googleapis.com/a1aa/image/xVxAc1cJJvNonZz4nK6RtW3k6qmGgmbn5ehsQ6oCyaE.jpg" width="150"/>
      </a>
      <div class="hidden md:flex space-x-4">
       <a class="nav-link text-gray-700" href="/about">
@@ -239,7 +240,7 @@
                     type: "POST",
                     data: {filepath:path},
                     success: function(response){
-                        $(".json-result").html('<p>"Prediction File created at !!!Prediction_Output_File/Predictions.csv and few of the predictions are"</p><pre>' + response + '</pre>');	
+                        $(".json-result").html('<p>"Prediction File created at !!!Prediction_Output_File/Predictions.csv"</p><pre>' + response + '</pre>');	
                         $('#loading').hide();
                     }
                 });
